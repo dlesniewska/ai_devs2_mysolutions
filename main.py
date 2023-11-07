@@ -17,7 +17,8 @@ def call_aidevs_api(task_name):
     test_data_resolver = TestDataResolver()
     test_data = test_data_resolver.get_data(token)
     print("Test data")
-    print(test_data)
+    print(test_data.status_code)
+    print(test_data.json())
 
     # send result #before: answer = testData.json()[fieldName]
     answer = create_api_answer(test_data)
@@ -38,10 +39,11 @@ from aidevs_single_tasks.embeddings import Embeddings
 from aidevs_single_tasks.whisper import Whisper
 from aidevs_single_tasks.functions import Functions
 from aidevs_single_tasks.rodo import Rodo
+from aidevs_single_tasks.scraper import Scraper
 
 
 def create_api_answer(test_data):
-    return Rodo.generate_answer(test_data)
+    return Scraper.generate_answer(test_data)
 
 
 if __name__ == '__main__':
@@ -52,7 +54,7 @@ if __name__ == '__main__':
     # print(create_api_answer(test_data))
 
     ##real run of ai_devs api task
-    call_aidevs_api("rodo")
+    call_aidevs_api("scraper")
 
     ##test call openapi completion test method
 
