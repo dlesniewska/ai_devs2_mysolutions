@@ -41,10 +41,11 @@ from aidevs_single_tasks.functions import Functions
 from aidevs_single_tasks.rodo import Rodo
 from aidevs_single_tasks.scraper import Scraper
 from aidevs_single_tasks.inprompt import Inprompt
+from aidevs_single_tasks.liar import Liar
 
 
 def create_api_answer(test_data):
-    return Inprompt.generate_answer(test_data)
+    return Liar.generate_answer(test_data)
 
 
 if __name__ == '__main__':
@@ -55,8 +56,9 @@ if __name__ == '__main__':
     # print(create_api_answer(test_data))
 
     ##real run of ai_devs api task
-    call_aidevs_api("inprompt")
+    call_aidevs_api("liar")
 
     ##test call openapi completion test method
 
 # task_name= helloapi | moderation | blogger | embeddings | whisper | functions | rodo | scraper | inprompt
+# script that do not use this run schema: liar and ?
