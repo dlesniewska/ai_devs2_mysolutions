@@ -40,10 +40,11 @@ from aidevs_single_tasks.whisper import Whisper
 from aidevs_single_tasks.functions import Functions
 from aidevs_single_tasks.rodo import Rodo
 from aidevs_single_tasks.scraper import Scraper
+from aidevs_single_tasks.inprompt import Inprompt
 
 
 def create_api_answer(test_data):
-    return Scraper.generate_answer(test_data)
+    return Inprompt.generate_answer(test_data)
 
 
 if __name__ == '__main__':
@@ -54,8 +55,8 @@ if __name__ == '__main__':
     # print(create_api_answer(test_data))
 
     ##real run of ai_devs api task
-    call_aidevs_api("scraper")
+    call_aidevs_api("inprompt")
 
     ##test call openapi completion test method
 
-# task_name= helloapi | moderation | blogger | embeddings | whisper | functions
+# task_name= helloapi | moderation | blogger | embeddings | whisper | functions | rodo | scraper | inprompt
