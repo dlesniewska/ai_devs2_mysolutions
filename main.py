@@ -44,9 +44,10 @@ from aidevs_single_tasks.inprompt import Inprompt
 from aidevs_single_tasks.liar import Liar
 from aidevs_single_tasks.search import Search
 from aidevs_single_tasks.tools import Tools
+from aidevs_single_tasks.people import People
 
 def create_api_answer(test_data):
-    return Tools.generate_answer(test_data)
+    return People.generate_answer(test_data)
 
 
 if __name__ == '__main__':
@@ -57,7 +58,7 @@ if __name__ == '__main__':
     # print(create_api_answer(test_data))
 
     ##real run of ai_devs api task
-    call_aidevs_api("tools")
+    call_aidevs_api("people")
 
     ##test call openapi completion test method
 
