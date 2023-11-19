@@ -8,10 +8,10 @@ from langchain.schema.document import Document
 from uuid import uuid4
 
 import os
-import jsonReader
+from aidevs_other_stuff.jsonReader import JsonReader
 
 class QdrantHelper:
-    def init_collection(file_path, collection_name, limit=300):
+    def init_collection(persistent_memory, collection_name, limit=300):
 
         qdrant = QdrantClient(
             "http://localhost:6333")  # url=os.environ['QDRANT_URL']) |qdrant = QdrantClient("localhost", port=6333)
@@ -23,7 +23,7 @@ class QdrantHelper:
                                      vectors_config=VectorParams(size=1536, distance="Cosine", on_disk=True))
         collection_info = qdrant.get_collection(collection_name)
         if not collection_info.points_count:
-            persistent_memory = jsonReader.JsonReader().read(file_path, limit)
+
             print("read", len(persistent_memory), "documents")
             documents = [Document(page_content=str(content),
                                   metadata={'source': collection_name, 'uuid': str(uuid4()), 'content': content}) for

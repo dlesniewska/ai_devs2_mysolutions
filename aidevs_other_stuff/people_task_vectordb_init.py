@@ -1,3 +1,4 @@
+from aidevs_other_stuff.jsonReader import JsonReader
 from qdrantHelper import QdrantHelper
 
 
@@ -10,4 +11,4 @@ if __name__ == '__main__':
     MEMORY_PATH = "people_task_vectordb_init.json"
     COLLECTION_NAME = "ai_devs_people_task"
 
-    QdrantHelper.init_collection(file_path=MEMORY_PATH, collection_name=COLLECTION_NAME, limit=1500)
+    QdrantHelper.init_collection(persistent_memory = JsonReader.read(MEMORY_PATH, limit = 1500), collection_name=COLLECTION_NAME, limit=1500)
