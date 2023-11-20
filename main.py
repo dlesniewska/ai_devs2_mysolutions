@@ -47,9 +47,11 @@ from aidevs_single_tasks.tools import Tools
 from aidevs_single_tasks.people import People
 from aidevs_single_tasks.knowledge import Knowledge
 from aidevs_single_tasks.gnome import Gnome
+from aidevs_single_tasks.ownapi import Ownapi
+from aidevs_single_tasks.meme import Meme
 
 def create_api_answer(test_data):
-    return Gnome.generate_answer(test_data)
+    return Meme.generate_answer(test_data)
 
 
 if __name__ == '__main__':
@@ -60,7 +62,7 @@ if __name__ == '__main__':
     # print(create_api_answer(test_data))
 
     ##real run of ai_devs api task
-    call_aidevs_api("gnome")
+    call_aidevs_api("meme")
 
     ##test call openapi completion test method
 
